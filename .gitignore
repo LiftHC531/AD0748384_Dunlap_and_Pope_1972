@@ -1,0 +1,8 @@
+# MATLAB temporary and autosave files
+*.asv
+*.autosave
+*.mex*
+*.mdl.r20*
+*.slxc
+*.slprj/
+*.mat
