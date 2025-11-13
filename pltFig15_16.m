@@ -57,18 +57,18 @@ legend('\Sigma', '\Delta_{EL}', 'Location', 'southeast');
 text(-4.5, -1.5, 'BW_{3dB} = 1.6^o');
 xlabel('Degrees', 'FontSize', ft_size);
 ylabel('Normalized antenna response [dB]', 'FontSize', ft_size); grid on;
-title('Figure 15. Antenna 1 patterns');
+title('Figure 15. Antenna 1 patterns', 'FontSize', ft_size);
 
 subplot(1, 2, 2);
 plot(ElDeg, Sum1_dB, 'k--', 'LineWidth', 1.4); hold on;
-plot(ElDeg, DfEl2_dB, 'r-', 'LineWidth', 1.4); hold on;
+plot(ElDeg, DfEl2_dB, 'r-', 'LineWidth', 1.4);
 plot([-5.0, 5.0], [-3.0, -3.0], 'b-.', 'LineWidth', 1.0); hold off;
 ylim([-50.0, 0.0]);
 xticks(-5 : 1 : 5);
 
 xlabel('Degrees', 'FontSize', ft_size);
 ylabel('Normalized antenna response [dB]', 'FontSize', ft_size); grid on;
-title('Figure 16. Antenna 2 patterns');
+title('Figure 16. Antenna 2 patterns', 'FontSize', ft_size);
 
 width = 700;
 height = 500;
