@@ -10,32 +10,32 @@ tic;
 addpath("./utils");
 
 ft = 'Times';     % Time News Roman
-ft_size = 14;     % Font size
+ft_size = 12;     % Font size
 set(0, 'defaultAxesFontName', ft, 'defaultTextFontName', ft,      ...
     'defaultUipanelFontName', ft, 'defaultUicontrolFontName', ft, ...
     'defaultUitableFontName', ft);
 
 imageName1 = './figures/DP72_Fig15_16.png';
 %% Compute antenna pattern
-c = 3.e8;
-fc = 10.e9; % X-band operationl frequency [Hz]
-lambda = c / fc; % wavelength
+c = 3.e8;        % Speed of light [m s-1]
+fc = 10.e9;      % X-band operationl frequency [Hz]
+lambda = c / fc; % Wavelength [m]
 
 numSamples = 3000;
 % Measurement angles [rad]
-Az = 0.e0;                                          % SALP
-El = pi / 180.e0 * linspace(-5.0, 5.0, numSamples); % SBET
+Az = 0.e0;                                          % SNALP in [1]
+El = pi / 180.e0 * linspace(-5.0, 5.0, numSamples); % SNBET in [1]
 % Steering angles [rad]
-AzS = 0.e0; % SNALP
-ElS = 0.e0; % SNBET
+AzS = 0.e0; % SALP in [1]
+ElS = 0.e0; % SBET in [1]
 
 Sum1 = complex(zeros(1, numSamples), 0.e0);
 DfAz1 = complex(zeros(1, numSamples), 0.e0);
 DfEl1 = complex(zeros(1, numSamples), 0.e0);
 DfEl2 = complex(zeros(1, numSamples), 0.e0);
 for i = 1 : numSamples
-    [Sum1(i), DfAz1(i), DfEl1(i)] = ANTENA(AzS, ElS, Az, El(i), lambda);
-    [~, ~, DfEl2(i)] = ANTENA(AzS, ElS, Az, El(i), lambda, 2); % Antenna 2
+    [Sum1(i), DfAz1(i), DfEl1(i)] = ANTENA(Az, El(i), AzS, ElS, lambda);
+    [~, ~, DfEl2(i)] = ANTENA(Az, El(i), AzS, ElS, lambda, 2); % Antenna 2
 end
 
 ElDeg = 180.e0 / pi * El;
@@ -75,7 +75,7 @@ height = 500;
 set(gcf, 'position', [300, 100, width, height]);
 
 % output the image
-print(gcf, '-dpng', '-r600', imageName1);
+% print(gcf, '-dpng', '-r600', imageName1);
 
 toc;
 return;
