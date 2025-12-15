@@ -1,9 +1,9 @@
 function [SUM, DFA, DFE] = ANTENA(SNALP, SNBET, SALP, SBET, WAVLN, CONFIG)
-% Subroutine ANTENA described in reference [1, p.41]
 % This subroutine determines the response in free space of sin(x)/x pattern.
+% Subroutine ANTENA described in reference [1, p.41]
 %   Inputs:
-%       SNALP, SNBET : Steering (beam pointing) azimuth and elevation angles [rad]
-%       SALP,  SBET  : Signal (measurement) azimuth and elevation angles [rad]
+%       SNALP, SNBET : Signal (measurement) azimuth and elevation angles [rad]
+%       SALP,  SBET  : Steering (beam pointing) azimuth and elevation angles [rad]
 %       WAVLN        : Wavelength [m]
 %       CONFIG       : Elevation difference channel beam Configuration (antenna model)
 %
@@ -18,7 +18,7 @@ function [SUM, DFA, DFE] = ANTENA(SNALP, SNBET, SALP, SBET, WAVLN, CONFIG)
 %           U.S. Army Missile Command, Advanced Sensors Directorate, 
 %           Redstone Arsenal, AL, USA, May 31, 1972.
 
-    if nargin < 6, CONFIG=1; end
+    if nargin < 6, CONFIG = 1; end
 
     UAHA = 1.e0; UBHA = 1.e0; % Azimuth weighting parameters
     UAHE = 1.e0; UBHE = 1.e0; % Elevation weighting parameters
@@ -45,7 +45,7 @@ function [SUM, DFA, DFE] = ANTENA(SNALP, SNBET, SALP, SBET, WAVLN, CONFIG)
 
     % Elevation difference channel beam configuration 2 in [1, p.39]
     if CONFIG > 1
-        X1 = SBET - SNBET; % [rad]
+        X1 = SNBET - SBET; % [rad]
         X2 = abs(X1);
         DX = X2 * 180.e0 / pi; % [rad] -> [deg]
 
@@ -61,5 +61,4 @@ function [SUM, DFA, DFE] = ANTENA(SNALP, SNBET, SALP, SBET, WAVLN, CONFIG)
     
     DFA = complex(UAHA * DFA, 0.e0);
     DFE = complex(UAHE * DFE, 0.e0);
-   
 end
