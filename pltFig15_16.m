@@ -9,7 +9,7 @@ tic;
 
 addpath("./utils");
 
-ft = 'Times';     % Time News Roman
+ft = 'Times';     % Times New Roman
 ft_size = 12;     % Font size
 set(0, 'defaultAxesFontName', ft, 'defaultTextFontName', ft,      ...
     'defaultUipanelFontName', ft, 'defaultUicontrolFontName', ft, ...
@@ -18,7 +18,7 @@ set(0, 'defaultAxesFontName', ft, 'defaultTextFontName', ft,      ...
 imageName1 = './figures/DP72_Fig15_16.png';
 %% Compute antenna pattern
 c = 3.e8;        % Speed of light [m s-1]
-fc = 8.e9;      % X-band operationl frequency [Hz]
+fc = 8.e9;       % X-band operationl frequency [Hz]
 lambda = c / fc; % Wavelength [m]
 
 numSamples = 3000;
