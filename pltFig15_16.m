@@ -1,4 +1,4 @@
-% The figure 15 and 16 described in reference [1, p.15, 30, 31]
+% The figure 15 and 16 described in reference [1, pp.15 and 30-31]
 %   Reference:
 %       [1] S. O. Dunlap and B. E. Pope, "Digital Simulation of Monopulse 
 %           Angle Tracking with Multipath Propagation," Tech. Rep. AD0748384, 
@@ -18,7 +18,7 @@ set(0, 'defaultAxesFontName', ft, 'defaultTextFontName', ft,      ...
 imageName1 = './figures/DP72_Fig15_16.png';
 %% Compute antenna pattern
 c = 3.e8;        % Speed of light [m s-1]
-fc = 10.e9;      % X-band operationl frequency [Hz]
+fc = 8.e9;      % X-band operationl frequency [Hz]
 lambda = c / fc; % Wavelength [m]
 
 numSamples = 3000;
@@ -26,8 +26,8 @@ numSamples = 3000;
 Az = 0.e0;                                          % SNALP in [1]
 El = pi / 180.e0 * linspace(-5.0, 5.0, numSamples); % SNBET in [1]
 % Steering angles [rad]
-AzS = 0.e0; % SALP in [1]
-ElS = 0.e0; % SBET in [1]
+AzS = 0.e0;                                         % SALP in [1]
+ElS = 0.e0;                                         % SBET in [1]
 
 Sum1 = complex(zeros(1, numSamples), 0.e0);
 DfAz1 = complex(zeros(1, numSamples), 0.e0);
@@ -74,7 +74,7 @@ width = 700;
 height = 500;
 set(gcf, 'position', [300, 100, width, height]);
 
-% output the image
+% Output the image
 % print(gcf, '-dpng', '-r600', imageName1);
 
 toc;

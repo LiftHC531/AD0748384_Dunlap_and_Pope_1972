@@ -3,7 +3,7 @@ function [SUM, DFA, DFE] = MULT(SNALP, SNBET, SALP, SBET,          ...
                                 XSPEC, XDIFF, ANTMOD)
 % MULT  Compute monopulse sum and difference channel responses
 %       including multipath effects over a spherical Earth.
-% Subroutine MULT described in reference [1, p.40, 41]
+% Subroutine MULT described in reference [1, pp.40 and 41]
 %   Inputs:
 %       SNALP, SNBET : Signal (measurement) azimuth and elevation angles [rad]
 %       SALP,  SBET  : Steering (beam pointing) azimuth and elevation angles [rad]
